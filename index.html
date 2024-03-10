@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Names</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./short.css">
+  <style>
+    #input {
+      border-radius: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 1px solid black;
+      border-bottom: 0;
+      outline: 0;
+      font-size: 0.8rem;
+      padding: 0.2rem;
+      background-color: rgba(0,0,0,0);
+      color: #000;
+    }
+    #input:focus{
+      outline: 0;
+    }
+    #exec {
+      border-radius: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      outline: 0;
+      font-size: 0.8rem;
+      padding: 0.2rem;
+      background-color: rgba(0,0,0,0);
+      color: #000;
+      cursor: pointer;
+    }
+    #exec:hover{
+      background-color: #000;
+      color: #FFF;
+    }
+    #exec:focus{
+      outline: 0;
+    }
+    #exec:disabled{
+      background-color: red;
+      color: #FFF;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- container -->
+  <div class="d-f fd-c w-12 h-12">
+
+    <!-- file list -->
+    <div id="list" class="d-f fd-c f-1 bb-1 bt-1 oy-a fs-08">
+
+    </div>
+
+    <!-- guide -->
+    <div id="guide" class="d-b f-n bb-1 fs-08 p-02">
+      {index:0}, {i:0}, {w:0}, {n:0}, {k:0}
+    </div>
+
+    <!-- input -->
+    <div class="d-f fd-r f-n">
+      <input id="input" class="f-1" type="text" placeholder="Enter your template...">
+      <button id="exec" class="">Run</button>
+    </div>
+
+  </div>
+
+  <script src="./libs/str.js"></script>
+  <script src="./libs/arr.js"></script>
+  <script src="./libs/obj.js"></script>
+  <script src="./libs/dnd.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
