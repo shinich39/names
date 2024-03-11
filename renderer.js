@@ -50,27 +50,39 @@ function rename(file) {
     if (/\{.*\}/.test(item)) {
       const str = item.replace(/\{|\}|\s/g, "");
       const key = str.split(":")[0];
-      const value = strJs.isNumber(str.split(":").pop()) ? parseInt(str.split(":").pop()) : 0;
+      let value = strJs.isNumber(str.split(":").pop()) ? parseInt(str.split(":").pop()) : 0;
       if (key === "index") {
         result += String(file.index+1).padStart(value, "0");
       } else if (key === "w") {
         // word
-        if (value < file.words.length) {
+        if (value < 0) {
+          value += file.words.length;
+        }
+        if (value >= 0 && value < file.words.length) {
           result += file.words[value];
         }
       } else if (key === "n") {
         // number
-        if (value < file.numbers.length) {
+        if (value < 0) {
+          value += file.numbers.length;
+        }
+        if (value >= 0 && value < file.numbers.length) {
           result += file.numbers[value];
         }
       } else if (key === "i") {
         // item
-        if (value < file.items.length) {
+        if (value < 0) {
+          value += file.items.length;
+        }
+        if (value >= 0 && value < file.items.length) {
           result += file.items[value];
         }
       } else if (key === "k") {
         // keyword
-        if (value < keywordList.length) {
+        if (value < 0) {
+          value += keywordList.length;
+        }
+        if (value >= 0 && value < keywordList.length) {
           result += keywordList[value].value;
         }
       }
