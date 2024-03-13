@@ -26,7 +26,7 @@ const createWindow = () => {
   mainWindow.loadFile('index.html');
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Set event listeners.
   mainWindow.webContents.on("did-finish-load", function() {
