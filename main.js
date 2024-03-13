@@ -1,15 +1,21 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from 'node:url';
+import utils from "./libs/utils.js";
+
+// Fix ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 600,
-    icon: path.join(process.cwd(), "resources/icons/512x512.png"),
+    icon: path.join(__dirname, "resources/icons/512x512.png"),
     webPreferences: {
-      preload: path.join(process.cwd(), 'preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
       worldSafeExecuteJavaScript: true,
       contextIsolation: true, // https://www.electronjs.org/docs/latest/tutorial/security
       nodeIntegration: false,
